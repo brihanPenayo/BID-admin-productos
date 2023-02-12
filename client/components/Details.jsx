@@ -20,7 +20,8 @@ const Product = () => {
             <p>Price: {product.price}</p>
             <p>Description: {product.description}</p>
             <hr />
-            <Link to="/" ><button>Back</button></Link>
+            <Link to="/" > <button>Back</button> </Link>
+            <button> <i className="fa fa-trash" aria-hidden="true"></i> </button>
         </div>
     )
 }

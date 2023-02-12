@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import AllProducts from '../components/AllProducts'
-import Form from '../components/Form'
+import Form from '../components/CreateForm'
 import axios from 'axios'
 
 const Home = () => {

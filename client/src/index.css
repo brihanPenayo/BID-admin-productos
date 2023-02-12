@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -66,4 +70,23 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.all_products{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 1rem;
+}
+.delete_product{
+  margin-left: 1rem;
+}
+
+.delete_product > i {
+  height: 100%;
+  margin: 0;
+}
+
+.Link {
+  color: white;
 }
