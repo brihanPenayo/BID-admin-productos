@@ -21,7 +21,7 @@ const Details = () => {
             <p>Description: {product.description}</p>
             <hr />
             <Link to="/" > <button>Back</button> </Link>
-            <button> <i className="fa fa-trash" aria-hidden="true"></i> </button>
+            <button className="fa fa-trash"></button>
         </div>
     )
 }

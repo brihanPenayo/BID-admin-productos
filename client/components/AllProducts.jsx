@@ -11,7 +11,7 @@ const AllProducts = ({ products }) => {
                 <div key={idx}>
                     <div className='all_products' >
                         <Link className='Link' to={prod.product}><strong>{prod.product}</strong></Link>
-                        <button className='delete_product fa fa-trash' id={[prod.product, prod.price]} onClick={handleDelete}></button>
+                        <button className='fa fa-trash' id={[prod.product, prod.price]} onClick={handleDelete}></button>
                     </div>
                     <hr />
                 </div>))}
