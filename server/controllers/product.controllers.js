@@ -7,8 +7,8 @@ const createProduct = (req, res) => {
         price,
         description
     })
-        .then(prod => res.json(prod))
-        .catch(err => res.json(err));
+        .then(prod => { res.json(prod) })
+        .catch(err => { res.json(err) });
 }
 
 const getProduct = (req, res) => {
@@ -18,7 +18,13 @@ const getProduct = (req, res) => {
 }
 
 const showProduct = (req, res) => {
-    Product.findOne({product: req.params.prod})
+    Product.findOne({ product: req.params.prod })
+        .then(prod => res.json({ prod }))
+        .catch(err => res.json(err));
+}
+
+const deleteProduct = (req, res) => {
+    Product.deleteOne({ product: req.params.prod })
         .then(prod => res.json({ prod }))
         .catch(err => res.json(err));
 }
@@ -27,6 +33,7 @@ const showProduct = (req, res) => {
 module.exports = {
     createProduct,
     getProduct,
-    showProduct
+    showProduct,
+    deleteProduct
 }
 

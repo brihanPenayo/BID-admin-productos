@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// mongoose.set('strictQuery', true);
+mongoose.set('strictQuery', true);
 mongoose.connect("mongodb://127.0.0.1/product", {
     useNewUrlParser: true,
     useUnifiedTopology: true,

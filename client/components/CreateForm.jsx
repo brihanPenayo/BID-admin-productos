@@ -18,16 +18,21 @@ const Form = ({ products, setProducts }) => {
         console.log(values)
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setProducts([...products, values])
-        axios.post("http://localhost:8000/product", values)
-            .then(res => { res.data })
-            .catch(function (error) {
-                console.log(error);
-            });
+        try {
+            const res = await axios.post("http://localhost:8000/product", values)
+            if (res.data.errors?.product.kind == 'unique') {
+                alert("Product already exist")
+            }
+            else {
+                setProducts([...products, values])
+                setValues(initialValues)
+            }
 
-        setValues(initialValues)
+        } catch (error) {
+            console.log(error)// Handle errors
+        }
     }
 
     return (
