@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import { useState } from 'react'
 import Input from './Input'
 
@@ -22,6 +23,12 @@ const Form = () => {
     const handleSubmit = e => {
         e.preventDefault();
         setProducts([...products, values])
+        axios.post("http://localhost:8000/product", values)
+            .then(res => { (res.status = 200), res.data })
+            .catch(function (error) {
+                console.log(error);
+            });
+
         setValues(initialValues)
     }
 
