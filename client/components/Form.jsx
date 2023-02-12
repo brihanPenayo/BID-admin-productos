@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useState } from 'react'
 import Input from './Input'
+import { Link } from 'react-router-dom'
 
 const Form = () => {
     const initialValues = {
@@ -11,6 +11,15 @@ const Form = () => {
     }
     const [values, setValues] = useState(initialValues)
     const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        axios.get("http://localhost:8000/product")
+            .then(res => { setProducts(res.data.prod) })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [])
+
 
     const handleChange = e => {
         setValues({
@@ -46,9 +55,9 @@ const Form = () => {
             <hr />
             {products.map((prod, idx) => (
                 <div key={idx}>
-                    <p><strong>Product: {prod.product}</strong></p>
-                    <p>Price: {prod.price}</p>
-                    <p>Description: {prod.description}</p>
+                    <Link to={prod.product}><strong>{prod.product}</strong></Link>
+                    {/* <p>Price: {prod.price}</p> */}
+                    {/* <p>Description: {prod.description}</p> */}
                     <hr />
                 </div>
 

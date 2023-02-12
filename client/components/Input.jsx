@@ -5,7 +5,7 @@ const Input = props => {
     return (
         <div>
             <label htmlFor={name}>{label} </label>
-            <input type={type} name={name} onChange={onChange} value={value} min={0} placeholder={placeholder} required />
+            <input type={type} name={name} id={name} onChange={onChange} value={value} min={0} placeholder={placeholder} required />
         </div>
     )
 }

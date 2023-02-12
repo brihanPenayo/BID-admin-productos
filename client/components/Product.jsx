@@ -1,0 +1,28 @@
+import React from 'react'
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios';
+
+const Product = () => {
+    const { prod } = useParams();
+    const [product, setProduct] = useState([])
+    useEffect(() => {
+        axios.get(`http://localhost:8000/product/${prod}`)
+            .then(res => { setProduct(res.data.prod) })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [])
+
+    return (
+        <div>
+            <p><strong>Producto: {prod}</strong></p>
+            <p>Price: {product.price}</p>
+            <p>Description: {product.description}</p>
+            <hr />
+            <Link to="/" >Volver Atras</Link>
+        </div>
+    )
+}
+
+export default Product
