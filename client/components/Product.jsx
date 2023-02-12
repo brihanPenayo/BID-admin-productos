@@ -16,11 +16,11 @@ const Product = () => {
 
     return (
         <div>
-            <p><strong>Producto: {prod}</strong></p>
+            <p><strong>Product: {prod}</strong></p>
             <p>Price: {product.price}</p>
             <p>Description: {product.description}</p>
             <hr />
-            <Link to="/" >Volver Atras</Link>
+            <Link to="/" ><button>Back</button></Link>
         </div>
     )
 }
