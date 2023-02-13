@@ -24,16 +24,22 @@ const showProduct = (req, res) => {
 }
 
 const deleteProduct = (req, res) => {
-    Product.deleteOne({ product: req.params.prod })
+    Product.deleteOne({ _id: req.params.id })
         .then(prod => res.json({ prod }))
         .catch(err => res.json(err));
 }
 
+const updateProduct = (req, res) => {
+    Product.findOneAndUpdate({ product: req.params.prod }, req.body, { new: true })
+        .then(updatedProduct => res.json(updatedProduct))
+        .catch(err => res.json(err))
+}
 
 module.exports = {
     createProduct,
     getProduct,
     showProduct,
-    deleteProduct
+    deleteProduct,
+    updateProduct
 }
 

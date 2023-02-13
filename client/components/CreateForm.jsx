@@ -15,7 +15,6 @@ const Form = ({ products, setProducts }) => {
             ...values,
             [e.target.name]: e.target.value
         })
-        console.log(values)
     }
 
     const handleSubmit = async (e) => {

@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Details from "../components/Details";
+import UpdateForm from "../components/UpdateForm";
 import Layout from "../layout/Layout";
 import Home from "../pages/Home";
 
@@ -14,7 +15,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/:prod",
-                element: <Details />
+                element: <Details />,
+            },
+            {
+                path: ":prod/edit",
+                element: <UpdateForm />
             }
         ],
 

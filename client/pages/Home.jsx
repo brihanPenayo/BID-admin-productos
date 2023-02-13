@@ -14,10 +14,14 @@ const Home = () => {
             });
     }, [])
 
+    const removeFromDom = productId => {
+        setProducts(products.filter(prod => prod._id !== productId));
+    }
+
     return (
         <>
             <Form products={products} setProducts={setProducts} />
-            <AllProducts products={products} />
+            <AllProducts products={products} removeFromDom={removeFromDom} />
         </>
     )
 }
