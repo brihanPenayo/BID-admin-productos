@@ -17,7 +17,10 @@ const AllProducts = ({ products, removeFromDom }) => {
                 <div key={idx}>
                     <div className='all_products' >
                         <Link className='Link' to={prod.product}><strong>{prod.product}</strong></Link>
-                        <button className='fa fa-trash' onClick={(e) => { handleDelete(prod._id) }}></button>
+                        <div>
+                        <Link to={`/${prod.product}/edit`}> <button className='fa fa-pen' /></Link>
+                        <button className='fa fa-trash' onClick={(e) => { handleDelete(prod._id) }} />
+                        </div>
                     </div>
                     <hr />
                 </div>))}

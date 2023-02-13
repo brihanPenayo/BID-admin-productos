@@ -30,7 +30,8 @@ const Details = () => {
             <p>Description: {product.description}</p>
             <hr />
             <Link to="/" > <button>Back</button> </Link>
-            <button className="fa fa-trash" onClick={e => { handleDelete(product._id) }}></button>
+            <Link to={`/${prod}/edit`} > <button className='fa fa-pen' /></Link>
+            <button className="fa fa-trash" onClick={e => { handleDelete(product._id) }} />
         </div>
     )
 }

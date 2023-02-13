@@ -37,6 +37,7 @@ const Form = ({ products, setProducts }) => {
     return (
 
         <form className="App" onSubmit={handleSubmit}>
+            <h1>Create Product</h1>
             <Input type="text" value={values.product} onChange={handleChange}
                 label="Product" name="product" placeholder="Product Name" />
             <Input type="number" value={values.price} onChange={handleChange}

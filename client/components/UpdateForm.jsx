@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
 const UpdateForm = () => {
     const navigate = useNavigate();
@@ -8,6 +8,18 @@ const UpdateForm = () => {
     const [product, setProduct] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("")
+
+    useEffect(() => {
+        axios.get(`http://localhost:8000/product/${prod}`)
+            .then(res => {
+                setProduct(res.data.prod.product),
+                    setPrice(res.data.prod.price),
+                    setDescription(res.data.prod.description)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [])
 
     const updateProduct = e => {
         e.preventDefault();
@@ -44,6 +56,7 @@ const UpdateForm = () => {
                         onChange={(e) => { setDescription(e.target.value) }} />
                 </p>
                 <button type="submit">Update</button>
+                <Link to={`/${prod}`} > <button>Back</button> </Link>
             </form>
         </div>
     )
